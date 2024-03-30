@@ -1,0 +1,5 @@
+_target_: model.LLMArchitecture
+name: opt-30b
+num_layers: 48
+hidden_size: 7168
+num_heads: 56

@@ -1,0 +1,3 @@
+_target_: model.ModelSize
+weights: 135000000000
+dtype_size: 2

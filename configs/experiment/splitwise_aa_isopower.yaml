@@ -1,0 +1,37 @@
+# @package _global_
+defaults:
+  - override /cluster: half_half
+  - override /performance_model: db
+  - override /trace: test_trace
+  - override /start_state: splitwise
+  - _self_
+
+cluster:
+  servers:
+    - sku: dgx-a100
+      count: 70
+    - sku: dgx-h100
+      count: 0
+
+start_state:
+  split_type: homogeneous
+  prompt:
+    num_instances: ${eval:'(70 - ${sweep})'}
+  token:
+    num_instances: ${sweep}
+
+trace:
+  filename: ${fname}_${trace_sweep}
+
+seed: 0
+
+hydra:
+  mode: MULTIRUN
+  sweeper:
+    params:
+      +sweep: range(5, 70, 5)
+      #+sweep: 25,30
+      +trace_sweep: range(50, 251, 10)
+      +fname: rr_code,rr_conversation
+      #+fname: rr_conversation
+      #+fname: rr_code

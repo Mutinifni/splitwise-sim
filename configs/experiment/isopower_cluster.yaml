@@ -1,0 +1,18 @@
+# @package _global_
+defaults:
+  - override /cluster: half_half
+  - _self_
+
+cluster:
+  servers:
+    - sku: dgx-a100
+      count: ${eval:'int(44 * (40 - ${sweep}) // 24.8)'}
+    - sku: dgx-h100
+      count: ${sweep}
+
+seed: 0
+
+hydra:
+  sweeper:
+    params:
+      +sweep: range(1, 40, 1)

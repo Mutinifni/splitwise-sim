@@ -1,0 +1,9 @@
+# single application_id is allocated to all servers
+
+state_type: orca
+application_id: 0
+instance:
+  instance_type: ORCA
+  max_batch_size: 512
+  pipeline_parallelism: 1
+  tensor_parallelism: 8

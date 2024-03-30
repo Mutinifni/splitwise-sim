@@ -1,0 +1,16 @@
+power_budget: 232000
+
+servers:
+  - sku: dgx-a100
+    #count: 1
+    #count: 38
+    count: 37
+    #count: 750
+  - sku: dgx-h100
+    #count: 1
+    count: 16
+    #count: 50
+
+interconnects:
+  - link: infiniband
+    topology: p2p

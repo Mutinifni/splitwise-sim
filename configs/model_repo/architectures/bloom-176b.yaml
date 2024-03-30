@@ -1,0 +1,5 @@
+_target_: model.LLMArchitecture
+name: bloom-176b
+num_layers: 70
+hidden_size: 14336
+num_heads: 112

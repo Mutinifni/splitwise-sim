@@ -1,0 +1,10 @@
+_target_: power_model.ConstantPowerModel
+idle_power:
+  a100-80gb: 63
+  h100-80gb: 75
+prompt_power:
+  a100-80gb: 400
+  h100-80gb: 700
+token_power:
+  a100-80gb: 250
+  h100-80gb: 380

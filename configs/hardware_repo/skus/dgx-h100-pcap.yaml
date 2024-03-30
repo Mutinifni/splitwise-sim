@@ -1,0 +1,7 @@
+_target_: server.Server
+name: dgx-h100-pcap
+tdp: 7140
+processors:
+  - name: h100-80gb-pcap
+    count: 8
+interconnects: {}

@@ -1,0 +1,23 @@
+# single application_id is allocated to all servers
+
+state_type: splitwisehhcap_${start_state.prompt.num_instances}_${start_state.token.num_instances}
+application_id: 0
+split_type: homogeneous
+prompt:
+  instance_type: Splitwise
+  max_batch_size: 512
+  max_batch_tokens: 2048
+  max_preemptions: 4
+  pipeline_parallelism: 1
+  tensor_parallelism: 8
+  num_instances: 1
+  instance_names: ["dgx-h100"]
+token:
+  instance_type: Splitwise
+  max_batch_size: 512
+  max_batch_tokens: 2048
+  max_preemptions: 4
+  pipeline_parallelism: 1
+  tensor_parallelism: 8
+  num_instances: 1
+  instance_names: ["dgx-h100-pcap"]

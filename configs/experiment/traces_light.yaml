@@ -1,0 +1,16 @@
+# @package _global_
+defaults:
+  - override /trace: test_trace
+  - _self_
+
+rounded_sweep: ${eval:'round(${sweep},1)'}
+trace:
+  filename: ${fname}_${rounded_sweep}
+
+hydra:
+  mode: MULTIRUN
+  sweeper:
+    params:
+      #+sweep: range(0.2, 0.3, 0.2)
+      +sweep: range(0.2, 5, 0.2)
+      +fname: rr_code

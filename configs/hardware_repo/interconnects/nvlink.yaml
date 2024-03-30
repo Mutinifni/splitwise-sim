@@ -1,0 +1,3 @@
+# TODO: better topology / config support for interconnects
+_target_: interconnect.NVLink
+bandwidth: 1

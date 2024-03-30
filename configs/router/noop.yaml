@@ -1,0 +1,5 @@
+defaults:
+  - overheads: zero
+  - _self_
+
+_target_: router.NoOpRouter

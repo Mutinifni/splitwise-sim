@@ -1,0 +1,38 @@
+# @package _global_
+defaults:
+  - override /cluster: half_half
+  - override /performance_model: db
+  - override /trace: test_trace
+  - override /start_state: splitwise
+  - _self_
+
+cluster:
+  servers:
+    - sku: dgx-a100
+      count: 0
+    - sku: dgx-h100
+      #count: ${eval:'(100 + ${sweep})'}
+      count: ${eval:'(${prompt_sweep} + ${token_sweep})'}
+
+start_state:
+  split_type: homogeneous
+  prompt:
+    num_instances: ${prompt_sweep}
+  token:
+    num_instances: ${token_sweep}
+
+trace:
+  filename: ${fname}_${trace_sweep}_2min
+
+seed: 0
+
+hydra:
+  mode: MULTIRUN
+  sweeper:
+    # this is not a simulator parameter, but a hydra parameter
+    max_batch_size: 288
+    params:
+      +prompt_sweep: range(1, 40, 1)
+      +token_sweep: range(1, 40, 1)
+      +trace_sweep: 70
+      +fname: rr_code,rr_conversation

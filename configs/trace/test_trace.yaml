@@ -1,0 +1,3 @@
+dir: traces/
+filename: test_trace
+path: ${trace.dir}/${trace.filename}.csv

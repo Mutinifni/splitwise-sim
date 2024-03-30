@@ -1,0 +1,3 @@
+_target_: processor.GPU
+name: a100-40gb
+memory_size: 42949672960

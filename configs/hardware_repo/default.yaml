@@ -1,0 +1,3 @@
+processors: configs/hardware_repo/processors
+skus: configs/hardware_repo/skus
+interconnects: configs/hardware_repo/interconnects

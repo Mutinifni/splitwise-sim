@@ -1,0 +1,3 @@
+_target_: performance_model.ConstantPerformanceModel
+prompt_time: 1
+token_time: 10

@@ -1,0 +1,29 @@
+# @package _global_
+defaults:
+  - override /cluster: half_half
+  - override /performance_model: db
+  - override /trace: test_trace
+  - override /start_state: baseline
+  - _self_
+
+cluster:
+  servers:
+    - sku: dgx-a100
+      count: ${sweep}
+    - sku: dgx-h100
+      count: 0
+
+trace:
+  filename: ${fname}_${trace_sweep}_2min
+
+seed: 0
+
+hydra:
+  mode: MULTIRUN
+  sweeper:
+    params:
+      +sweep: range(1, 140, 1)
+      +trace_sweep: 70
+      +fname: rr_code,rr_conversation
+      #+fname: rr_code
+      applications.0.scheduler: token_jsq

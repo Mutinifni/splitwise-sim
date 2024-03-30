@@ -1,0 +1,5 @@
+_target_: model.LLMArchitecture
+name: gpt3-175b
+num_layers: 96
+hidden_size: 12288
+num_heads: 96

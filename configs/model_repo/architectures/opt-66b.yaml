@@ -1,0 +1,5 @@
+_target_: model.LLMArchitecture
+name: opt-66b
+num_layers: 64
+hidden_size: 9216
+num_heads: 72

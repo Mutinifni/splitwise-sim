@@ -1,0 +1,2 @@
+architectures: configs/model_repo/architectures
+sizes: configs/model_repo/sizes

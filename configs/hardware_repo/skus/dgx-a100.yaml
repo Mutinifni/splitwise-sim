@@ -1,0 +1,7 @@
+_target_: server.Server
+name: dgx-a100
+tdp: 6500
+processors:
+  - name: a100-80gb
+    count: 8
+interconnects: {}

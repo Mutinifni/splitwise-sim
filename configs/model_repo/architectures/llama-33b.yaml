@@ -1,0 +1,5 @@
+_target_: model.LLMArchitecture
+name: llama-33b
+num_layers: 60
+hidden_size: 6656
+num_heads: 52

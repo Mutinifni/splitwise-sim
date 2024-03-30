@@ -1,0 +1,7 @@
+_target_: allocator.NoOpAllocator
+overheads:
+  spin_up: 0
+  spin_down: 0
+instance_overheads:
+  run: 0
+  preempt: 0

@@ -1,0 +1,39 @@
+defaults:
+  - cluster: dgx-a100
+  - router: noop
+  - arbiter: noop
+  - hardware_repo: default
+  - model_repo: default
+  - orchestrator_repo: default
+  - performance_model: constant
+  - power_model: constant
+  - applications: solo
+  - trace: test_trace
+  - start_state: orca
+  - override hydra/launcher: ray
+  - _self_
+
+end_time: 86400
+
+seed: 0
+plot: True
+debug: False
+
+choices: ${hydra:runtime.choices}
+wtag: default
+output_dir: results/${seed}/${start_state.state_type}/${trace.filename}/${cluster.servers.0.count}_${cluster.servers.1.count}/${applications.0.model_architecture}/${applications.0.scheduler}
+trace_dir: traces/${seed}/${wtag}
+
+# changes the cwd to the output directory
+hydra:
+  run:
+    dir: ${output_dir}
+  sweep:
+    dir: ""
+    subdir: ${output_dir}
+  job:
+    chdir: True
+  launcher:
+    ray:
+      init:
+        address: "10.0.0.9:6379"

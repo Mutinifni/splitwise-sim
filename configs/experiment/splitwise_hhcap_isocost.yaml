@@ -1,0 +1,36 @@
+# @package _global_
+defaults:
+  - override /cluster: half_half
+  - override /performance_model: db
+  - override /trace: test_trace
+  - override /start_state: splitwise_hhcap
+  - _self_
+
+cluster:
+  servers:
+    - sku: dgx-h100-pcap
+      count: ${eval:'(40 - ${sweep})'}
+    - sku: dgx-h100
+      count: ${sweep}
+
+start_state:
+  split_type: heterogeneous 
+  prompt:
+    instance_names: ["dgx-h100"]
+  token:
+    instance_names: ["dgx-h100-pcap"]
+
+trace:
+  #filename: rr_constant_512p_512t_${trace_sweep}
+  filename: ${fname}_${trace_sweep}
+
+seed: 0
+
+hydra:
+  mode: MULTIRUN
+  sweeper:
+    params:
+      +sweep: range(5, 40, 5)
+      +trace_sweep: range(50, 181, 10)
+      #+fname: rr_conversation
+      +fname: rr_code,rr_conversation

@@ -1,0 +1,2 @@
+allocators: configs/orchestrator_repo/allocators
+schedulers: configs/orchestrator_repo/schedulers
