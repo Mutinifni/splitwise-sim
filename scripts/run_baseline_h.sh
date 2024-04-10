@@ -5,6 +5,6 @@ python run.py \
     cluster.servers.1.count=40 \
     start_state=baseline \
     performance_model=db \
-    trace.filename=rr_conversation_80 \
+    trace.filename=rr_conv_80 \
     seed=0
     #+experiment=traces_light \

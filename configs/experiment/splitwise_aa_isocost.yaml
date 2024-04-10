@@ -31,5 +31,5 @@ hydra:
     params:
       +sweep: range(5, 86, 5)
       +trace_sweep: range(50, 181, 10)
-      #+fname: rr_conversation
-      +fname: rr_code,rr_conversation
+      #+fname: rr_conv
+      +fname: rr_code,rr_conv

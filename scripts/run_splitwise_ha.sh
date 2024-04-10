@@ -6,7 +6,7 @@ python run.py \
     start_state=splitwise \
     start_state.split_type=heterogeneous \
     performance_model=db \
-    trace.filename=rr_conversation_80 \
+    trace.filename=rr_conv_80 \
     seed=0
     #applications.0.scheduler=token_jsq \
     #trace.filename=rr_code_70 \

@@ -251,7 +251,7 @@ def download_azure_llm_traces():
     if not os.path.exists("data/conv_distributions.csv"):
         url = url_base + "AzureLLMInferenceTrace_conv.csv"
         download_file(url, "data/conv_distributions.csv")
-        print("Downloaded conversation traces")
+        print("Downloaded conv traces")
 
 
 if __name__ == "__main__":
@@ -262,13 +262,30 @@ if __name__ == "__main__":
     generate_code_traces(
         max_requests=1000000,
         end_time=600,
-        request_rates=list(range(50, 251, 10)),
+        request_rates=list(range(30, 251, 10)),
         code_distributions_file="data/code_distributions.csv")
     print("Generated code traces")
 
     generate_conv_traces(
         max_requests=1000000,
         end_time=600,
-        request_rates=list(range(50, 251, 10)),
+        request_rates=list(range(30, 251, 10)),
         conv_distributions_file="data/conv_distributions.csv")
-    print("Generated conversation traces")
+    print("Generated conv traces")
+
+    # generate request traces for 2 min
+    generate_code_traces(
+        max_requests=1000000,
+        end_time=120,
+        request_rates=list(range(30, 101, 10)),
+        code_distributions_file="data/code_distributions.csv",
+        trace_filename_template="traces/rr_code_{}_2min.csv")
+    print("Generated code 2min traces")
+
+    generate_conv_traces(
+        max_requests=1000000,
+        end_time=120,
+        request_rates=list(range(30, 101, 10)),
+        conv_distributions_file="data/conv_distributions.csv",
+        trace_filename_template="traces/rr_conv_{}_2min.csv")
+    print("Generated conv 2min traces")

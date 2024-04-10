@@ -23,7 +23,7 @@ start_state:
 trace:
   filename: ${fname}_${trace_sweep}
 
-seed: 1
+seed: 0
 
 hydra:
   mode: MULTIRUN
@@ -31,5 +31,5 @@ hydra:
     params:
       +sweep: range(5, 40, 5)
       +trace_sweep: range(50, 181, 10)
-      #+fname: rr_conversation
-      +fname: rr_code,rr_conversation
+      #+fname: rr_conv
+      +fname: rr_code,rr_conv

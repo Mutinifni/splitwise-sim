@@ -6,7 +6,7 @@ defaults:
 trace:
   #filename: rr_mix_${sweep}
   #filename: rr_constant_512p_512t_${sweep}
-  #filename: rr_conversation_${sweep}
+  #filename: rr_conv_${sweep}
   #filename: rr_code_${sweep}
   filename: ${fname}_${sweep}
 
@@ -14,6 +14,6 @@ hydra:
   sweeper:
     params:
       +sweep: range(50, 251, 10)
-      #+fname: rr_code,rr_conversation
-      +fname: rr_conversation
+      #+fname: rr_code,rr_conv
+      +fname: rr_conv
       #+fname: rr_code

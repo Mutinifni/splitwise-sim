@@ -33,4 +33,4 @@ hydra:
       +prompt_sweep: range(1, 40, 1)
       +token_sweep: range(1, 70, 1)
       +trace_sweep: 70
-      +fname: rr_code,rr_conversation
+      +fname: rr_code,rr_conv

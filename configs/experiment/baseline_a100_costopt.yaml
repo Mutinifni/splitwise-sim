@@ -24,6 +24,6 @@ hydra:
     params:
       +sweep: range(1, 140, 1)
       +trace_sweep: 70
-      +fname: rr_code,rr_conversation
+      +fname: rr_code,rr_conv
       #+fname: rr_code
       applications.0.scheduler: token_jsq

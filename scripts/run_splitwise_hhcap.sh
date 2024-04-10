@@ -5,6 +5,6 @@ python run.py \
     cluster.servers.1.count=35 \
     start_state=splitwise_hhcap \
     start_state.split_type=heterogeneous \
-    trace.filename=rr_conversation_80 \
+    trace.filename=rr_conv_80 \
     performance_model=db \
     seed=0

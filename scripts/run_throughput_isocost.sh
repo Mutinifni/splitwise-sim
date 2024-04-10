@@ -1,4 +1,4 @@
-TRACE=rr_conversation_180
+TRACE=rr_conv_180
 SEED=0
 echo "Running throughput experiments for trace $TRACE"
 

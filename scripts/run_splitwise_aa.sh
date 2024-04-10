@@ -7,8 +7,7 @@ python run.py \
     start_state.prompt.num_instances=27 \
     start_state.token.num_instances=13 \
     performance_model=db \
-    trace.filename=rr_conversation_80 \
+    trace.filename=rr_conv_80 \
     seed=0
     #applications.0.scheduler=token_jsq \
     #trace.filename=rr_code_70 \
-

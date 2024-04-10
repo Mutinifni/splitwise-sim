@@ -11,28 +11,25 @@ cluster:
     - sku: dgx-a100
       count: 0
     - sku: dgx-h100
-      #count: ${eval:'(100 + ${sweep})'}
-      count: ${eval:'(${prompt_sweep} + ${token_sweep})'}
+      count: 40
 
 start_state:
   split_type: homogeneous
   prompt:
-    num_instances: ${prompt_sweep}
+    num_instances: ${eval:'(40 - ${sweep})'}
   token:
-    num_instances: ${token_sweep}
+    num_instances: ${sweep}
 
 trace:
-  filename: ${fname}_${trace_sweep}_2min
+  filename: ${fname}_${trace_sweep}
 
 seed: 0
 
 hydra:
   mode: MULTIRUN
   sweeper:
-    # this is not a simulator parameter, but a hydra parameter
-    max_batch_size: 288
     params:
-      +prompt_sweep: range(1, 40, 1)
-      +token_sweep: range(1, 40, 1)
-      +trace_sweep: 70
+      +sweep: range(5, 40, 5)
+      +trace_sweep: range(50, 181, 10)
+      #+fname: rr_conv
       +fname: rr_code,rr_conv
