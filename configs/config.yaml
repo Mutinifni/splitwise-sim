@@ -14,18 +14,14 @@ defaults:
   - _self_
 
 end_time: 86400
-
-seed: 0
-plot: True
 debug: False
+seed: 0
 
 choices: ${hydra:runtime.choices}
-wtag: default
 output_dir: results/${seed}/${start_state.state_type}/${trace.filename}/${cluster.servers.0.count}_${cluster.servers.1.count}/${applications.0.model_architecture}/${applications.0.scheduler}
-trace_dir: traces/${seed}/${wtag}
 
-# changes the cwd to the output directory
 hydra:
+  # changes the cwd to the output directory
   run:
     dir: ${output_dir}
   sweep:

@@ -52,13 +52,12 @@ def run(cfg: DictConfig) -> None:
     #hydra_cfg = hydra.core.hydra_config.HydraConfig.get()
     #print(OmegaConf.to_yaml(hydra_cfg, resolve=False))
 
+    # initialize random number generator
+    random.seed(cfg.seed)
+
     # delete existing oom.csv if any
     if os.path.exists("oom.csv"):
         os.remove("oom.csv")
-
-    # initialize random number generator
-    random.seed(cfg.seed)
-    cfg.trace_dir = os.path.join(get_original_cwd(), cfg.trace_dir)
 
     run_simulation(cfg)
 
